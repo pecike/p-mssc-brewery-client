@@ -25,18 +25,18 @@ public class BreweryClient {
 
 
     public BeerDto getBeerById(final UUID beerId) {
-       return restTemplate.getForObject(props.getApiHost() + BEER_PATH_V1 + beerId, BeerDto.class);
-   }
+        return restTemplate.getForObject(props.getApiHost() + BEER_PATH_V1 + beerId, BeerDto.class);
+    }
 
-   public URI saveNewBeer(final BeerDto beerDto) {
+    public URI saveNewBeer(final BeerDto beerDto) {
         return restTemplate.postForLocation(props.getApiHost() + BEER_PATH_V1, beerDto);
-   }
+    }
 
-   public void updateBeer(final UUID beerId, final BeerDto beerDto) {
+    public void updateBeer(final UUID beerId, final BeerDto beerDto) {
         restTemplate.put(props.getApiHost() + BEER_PATH_V1 + beerId, beerDto);
-   }
+    }
 
-   public void deleteBeer(final UUID beerId) {
+    public void deleteBeer(final UUID beerId) {
         restTemplate.delete(props.getApiHost() + BEER_PATH_V1 + beerId);
-   }
+    }
 }
