@@ -8,6 +8,14 @@ import org.springframework.boot.context.properties.ConstructorBinding;
 @ConstructorBinding
 @ConfigurationProperties(prefix = "sfg.brewery", ignoreUnknownFields = false)
 public class AppProperties {
-
     String apiHost;
+    HttpClient httpClient;
+
+    @Value
+    public static class HttpClient {
+        Integer maxTotal;
+        Integer defaultMaxPerRoute;
+        Integer connectionRequestTimeout;
+        Integer connectTimeout;
+    }
 }
